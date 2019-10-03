@@ -9,3 +9,11 @@ canvas {
 h1 {
     text-align: center;
 }
+
+div.a {
+  text-align: center;
+}
+
+<div class="a">
+
+</div>
