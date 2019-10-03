@@ -2,18 +2,23 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+font-family: 'Josefin Slab', serif;
+
 canvas {
   display: block;
 }
 
 h1 {
+    font-family: 'serif';
     text-align: center;
 }
 
 div.a {
+  font-family:'Josefin Slab';
   text-align: center;
 }
 
-<div class="a">
+
 
 </div>
