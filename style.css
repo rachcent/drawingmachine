@@ -3,19 +3,18 @@ html, body {
   padding: 0;
 }
 
-font-family: 'Josefin Slab', serif;
-
+font-family: 'Source Sans Pro', sans-serif;
 canvas {
   display: block;
 }
 
 h1 {
-    font-family: 'serif';
+    font-family:'sans-serif';
     text-align: center;
 }
 
 div.a {
-  font-family:'Josefin Slab';
+  font-family:'Source Sans Pro';
   text-align: center;
 }
 
