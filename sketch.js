@@ -1,34 +1,25 @@
+var sound, amplitude, cnv;
+
+function preload(){
+  sound = loadSound('capsule.mp3');
+}
 function setup() {
-  createCanvas(600, 600) ;
-  background(220) ;
+  cnv = createCanvas(100,100);
+  amplitude = new p5.Amplitude();
 
-  for (var i = 0; i < 10; i++) {
-    var x = random(width);
-    var y = random(height);
-    var r = 5;
-    fill(0)
-    ellipse(x, y, r, r*2, r*2);
-  }
-
-  strokeWeight(3);
+  // start / stop the sound when canvas is clicked
+  cnv.mouseClicked(function() {
+    if (sound.isPlaying() ){
+      sound.stop();
+    } else {
+      sound.play();
+    }
+  });
 }
-
-
 function draw() {
-
-//drawing
-if (mouseIsPressed == true){
-  stroke(map (mouseX, 0, 600, 0, 255, true));
-  line(mouseX, mouseY, pmouseX, pmouseY);
-}
-
-function keyTyped(){
-
-  if (key === 's'){
-    //save this iamge
-    saveCanvas('fileName', 'png');
-
-  }
-  return false
-}
+  background(0);
+  fill(255);
+  var level = amplitude.getLevel();
+  var size = map(level, 0, 1, 0, 200);
+  ellipse(width/2, height/2, size, size);
 }
