@@ -1,25 +1,52 @@
-var sound, amplitude, cnv;
+var song;
+var button;
 
-function preload(){
-  sound = loadSound('capsule.mp3');
+function preload() {
+  song = loadSound("sunset.mp3", loaded);
 }
+
 function setup() {
-  cnv = createCanvas(100,100);
-  amplitude = new p5.Amplitude();
+  createCanvas(600, 600);
+  // song = loadSound("capsule.mp3", loaded);
+  button = createButton("play");
+  button.mousePressed(togglePlaying);
+  background(220);
 
-  // start / stop the sound when canvas is clicked
-  cnv.mouseClicked(function() {
-    if (sound.isPlaying() ){
-      sound.stop();
-    } else {
-      sound.play();
-    }
-  });
 }
+
+function loaded() {
+  console.log("loaded");
+}
+
+function togglePlaying() {
+  if (!song.isPlaying()) {
+    song.play();
+    song.setVolume(0.3);
+    button.html("pause");
+  } else {
+    song.pause();
+    button.html("play");
+  }
+
+}
+
+
+//random dots
+//   for (var i = 0; i < 10; i++) {
+//     var x = random(width);
+//     var y = random(height);
+//     var r = 5;
+//     fill(0)
+//     ellipse(x, y, r, r*2, r*2);
+//   }
+//   strokeWeight(3);
+// }
+
 function draw() {
-  background(0);
-  fill(255);
-  var level = amplitude.getLevel();
-  var size = map(level, 0, 1, 0, 200);
-  ellipse(width/2, height/2, size, size);
+
+  //drawing
+  if (mouseIsPressed == true) {
+    stroke(map(mouseX, 0, 600, 0, 255, true));
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
 }
