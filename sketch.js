@@ -15,9 +15,9 @@ function setup() {
   // song = loadSound("capsule.mp3", loaded);
   button = createButton("play");
   button.mousePressed(togglePlaying);
-  button.position(590, 320);
+  button.position(590, 420);
   slider = createSlider(0, 1, 0.5, 0.1);
-  slider.position(650, 320);
+  slider.position(650, 420);
   amplitude = new p5.Amplitude();
   huecolor = 0;
 
