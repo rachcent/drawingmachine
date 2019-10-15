@@ -1,18 +1,28 @@
 var song;
 var button;
+var volhistory = [];
+var huecolor; //change color
+var slider;
 
 function preload() {
-  song = loadSound("sunset.mp3", loaded);
+
+  song = loadSound("sunsetlover.mp3", loaded);
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(1000, 550);
+  background(10);
   // song = loadSound("capsule.mp3", loaded);
   button = createButton("play");
   button.mousePressed(togglePlaying);
-  background(220);
+  button.position(590, 320);
+  slider = createSlider(0, 1, 0.5, 0.1);
+  slider.position(650, 320);
+  amplitude = new p5.Amplitude();
+  huecolor = 0;
 
 }
+
 
 function loaded() {
   console.log("loaded");
@@ -21,32 +31,45 @@ function loaded() {
 function togglePlaying() {
   if (!song.isPlaying()) {
     song.play();
-    song.setVolume(0.3);
+    song.setVolume(.01);
     button.html("pause");
   } else {
     song.pause();
     button.html("play");
   }
 
+  }
+
+  //drawing program
+  function keyTyped() {
+    if (key === 's') {
+      //save this image
+    saveCanvas('fileName', 'png');
+    } else if (key ==='c') {
+      // clear the image
+      clear();
+    }
+    return false;
+
+  }
+function draw() {
+  song.setVolume(slider.value());
+
+
+  //drawing
+ if (mouseIsPressed){
+  var vol = amplitude.getLevel();
+  var size= map(vol, 0, 1, 0 , 300);
+  ellipse(mouseX, mouseY, 15 + vol, vol * 600);
+  //paintbrush color rainbow
+  if (huecolor > 360) {
+    huecolor=0;
+  } else {
+    huecolor++;
+  }
+  colorMode(HSL, 360);
+  fill(huecolor, 200, 200);
 }
 
 
-//random dots
-//   for (var i = 0; i < 10; i++) {
-//     var x = random(width);
-//     var y = random(height);
-//     var r = 5;
-//     fill(0)
-//     ellipse(x, y, r, r*2, r*2);
-//   }
-//   strokeWeight(3);
-// }
-
-function draw() {
-
-  //drawing
-  if (mouseIsPressed == true) {
-    stroke(map(mouseX, 0, 600, 0, 255, true));
-    line(mouseX, mouseY, pmouseX, pmouseY);
-  }
 }
