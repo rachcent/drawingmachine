@@ -17,7 +17,7 @@ canvas {
 
 h1 {
     font-size: 30px;
-    font-family:'Source Sans Pro';
+    font-family: 'sans-serif';
 background: linear-gradient(80deg, rgba(34,193,195,1) 0%, rgba(253,45,220,1) 50%, rgba(253,226,45,1) 89%);
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
