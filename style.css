@@ -10,14 +10,14 @@ body{
   text-align:center;
 }
 
-font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Montserrat', sans-serif; 'Roboto', sans-serif;
 canvas {
   display: block;
 }
 
 h1 {
-    font-size: 30px;
-    font-family:'Source Sans Pro';
+    font-size: 35px;
+    font-family:'Roboto', 'sans-serif';
 background: linear-gradient(80deg, rgba(34,193,195,1) 0%, rgba(253,45,220,1) 50%, rgba(253,226,45,1) 89%);
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
@@ -25,18 +25,12 @@ background: linear-gradient(80deg, rgba(34,193,195,1) 0%, rgba(253,45,220,1) 50%
     text-align: center;
 }
 
-h1 {
-    font-family:'sans-serif';
-    color:white;
-    text-align: center;
-}
-
 div.a {
+  font-size: 14px;
+  font-family:'Montserrat', 'sans-serif';
   background: linear-gradient(40deg, rgba(34,193,195,1) 0%, rgba(253,45,220,1) 50%, rgba(253,226,45,1) 89%);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
-  font-family:'sans-serif';
-  color:white;
   text-align: center;
 }
 
