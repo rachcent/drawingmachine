@@ -38,7 +38,8 @@ canvas{
   margin:100px auto 0 auto;
   display: block;
   border-style: dotted;
-  color:white;
+  background: linear-gradient(40deg, rgba(34,193,195,1) 0%, rgba(253,45,220,1) 50%, rgba(253,226,45,1) 89%);
+  color:black;
   border-width: 2px;
   border-radius: 5px;
 }
