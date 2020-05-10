@@ -3,6 +3,8 @@ var button;
 var volhistory = [];
 var huecolor; //change color
 var slider;
+// let noiseOffset = 0.0;
+// let strokeWidth = 5;
 
 function preload() {
 
@@ -12,12 +14,14 @@ function preload() {
 function setup() {
   createCanvas(1000, 550);
   background(10);
+
+
   // song = loadSound("capsule.mp3", loaded);
   button = createButton("play");
   button.mousePressed(togglePlaying);
-  button.position(590, 420);
+  button.position(590, 410);
   slider = createSlider(0, 1, 0.5, 0.1);
-  slider.position(650, 420);
+  slider.position(640, 410);
   amplitude = new p5.Amplitude();
   huecolor = 0;
 
@@ -48,13 +52,19 @@ function togglePlaying() {
     } else if (key ==='c') {
       // clear the image
       clear();
+      background(10);
     }
     return false;
 
   }
 function draw() {
+  // strokeWeight(strokeWidth);
+
+
   song.setVolume(slider.value());
 
+  // noiseOffset += 0.01;
+  // strokeWidth = noise(strokeWidth) * 10;
 
   //drawing
  if (mouseIsPressed){
@@ -68,7 +78,9 @@ function draw() {
     huecolor++;
   }
   colorMode(HSL, 360);
-  fill(huecolor, 200, 200);
+  fill(huecolor, 200, 200, 200);
+;
+
 }
 
 
